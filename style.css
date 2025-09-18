@@ -6,6 +6,24 @@ body {
     padding: 0;
     color: #333;
     background-color: #f4f4f4;
+    position: relative; /* 배경 이미지를 위한 설정 */
+    z-index: 1; /* 콘텐츠가 배경 위에 올라오도록 설정 */
+}
+
+/* 숭실대학교 배경 이미지 및 투명도 */
+body::before {
+    content: "";
+    position: fixed; /* 뷰포트에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2; /* 투명도 조절 (0.0은 투명, 1.0은 불투명) */
+    z-index: -1; /* 다른 콘텐츠 뒤로 보냄 */
 }
 
 header {
@@ -13,6 +31,7 @@ header {
     color: white;
     padding: 2rem 1rem;
     text-align: center;
+    background-image: url("./img.png"); /* 여기에 숭실대학교 이미지 URL을 넣으세요 */
 }
 
 header h1 {
@@ -23,6 +42,26 @@ header p {
     margin-top: 0;
 }
 
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #3498db;
+}
+
 main {
     max-width: 1000px;
     margin: 2rem auto;
@@ -30,7 +69,7 @@ main {
 }
 
 section {
-    background-color: white;
+    background-color: white; /* 가독성을 위해 흰색 배경 추가 */
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
@@ -42,30 +81,6 @@ h2 {
     border-bottom: 2px solid #3498db;
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
-}
-
-/* Skills Grid */
-.skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.skill-group h3 {
-    color: #3498db;
-}
-
-.skill-group ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.skill-group li {
-    background-color: #ecf0f1;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 4px;
 }
 
 /* Projects */
@@ -92,39 +107,6 @@ h2 {
     font-weight: bold;
 }
 
-/* Team Section */
-.team-members {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.member {
-    border: 1px solid #ccc;
-    padding: 1.5rem;
-    border-radius: 8px;
-}
-
-.member h3 {
-    color: #2c3e50;
-    margin-top: 0;
-}
-
-.member p {
-    color: #777;
-    margin-top: 0;
-}
-
-.member ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.member li {
-    margin-bottom: 0.25rem;
-    color: #555;
-}
-
 /* Contact */
 #contact ul {
     list-style-type: none;
@@ -147,15 +129,6 @@ footer {
 
 /* Responsive Design */
 @media (min-width: 768px) {
-    .skills-grid {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .skill-group {
-        flex-basis: 30%;
-    }
-
     .projects-container {
         flex-direction: row;
         flex-wrap: wrap;
@@ -164,14 +137,5 @@ footer {
 
     .project-item {
         flex-basis: calc(50% - 10px);
-    }
-
-    .team-members {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .member {
-        flex-basis: calc(33.333% - 15px);
     }
 }
