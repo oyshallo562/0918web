@@ -1,50 +1,36 @@
 /* Basic Styles */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif; /* 머티리얼 디자인 기본 폰트 */
     line-height: 1.6;
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f4f4f4;
-    position: relative; /* 배경 이미지를 위한 설정 */
-    z-index: 1; /* 콘텐츠가 배경 위에 올라오도록 설정 */
-}
-
-/* 숭실대학교 배경 이미지 및 투명도 */
-body::before {
-    content: "";
-    position: fixed; /* 뷰포트에 고정 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.2; /* 투명도 조절 (0.0은 투명, 1.0은 불투명) */
-    z-index: -1; /* 다른 콘텐츠 뒤로 보냄 */
+    background-color: #f5f5f5; /* 머티리얼 디자인 배경 색상 */
 }
 
 header {
-    background-color: #2c3e50; /* 푸른 계열 배경 */
+    background-color: #3f51b5; /* Material Indigo 500 */
     color: white;
     padding: 2rem 1rem;
     text-align: center;
-    background-image: url("./img.png"); /* 여기에 숭실대학교 이미지 URL을 넣으세요 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 그림자 효과 */
 }
 
 header h1 {
     margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 500;
 }
 
 header p {
     margin-top: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
 header nav ul {
     list-style: none;
-    padding: 0;
+    padding: 10px 0 0 0;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -55,11 +41,13 @@ header nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
 }
 
 header nav a:hover {
-    color: #3498db;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 main {
@@ -69,18 +57,19 @@ main {
 }
 
 section {
-    background-color: white; /* 가독성을 위해 흰색 배경 추가 */
+    background-color: white;
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 8px; /* 둥근 모서리 */
     margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); /* 카드 그림자 */
 }
 
 h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
+    color: #3f51b5; /* Indigo 500 */
+    border-bottom: 2px solid #e8eaf6; /* Indigo 50 */
     padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
+    font-weight: 500;
 }
 
 /* Projects */
@@ -91,21 +80,37 @@ h2 {
 }
 
 .project-item {
-    border: 1px solid #ddd;
-    padding: 1rem;
+    border: 1px solid #e0e0e0; /* 밝은 회색 테두리 */
+    padding: 1.5rem;
     border-radius: 8px;
-    transition: transform 0.2s;
+    transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+    background-color: #fff;
 }
 
 .project-item:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); /* 호버 시 그림자 강조 */
 }
 
+.project-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.project-item p {
+    color: #666;
+}
+
+
 .project-item a {
-    color: #3498db;
+    color: #e91e63; /* Material Pink 500 (Accent Color) */
     text-decoration: none;
     font-weight: bold;
+    text-transform: uppercase; /* 버튼 텍스트는 대문자로 */
+    padding: 8px 0;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
+
 
 /* Contact */
 #contact ul {
@@ -114,15 +119,15 @@ h2 {
 }
 
 #contact a {
-    color: #3498db;
+    color: #3f51b5; /* Indigo 500 */
     text-decoration: none;
     font-weight: bold;
 }
 
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #2c3e50;
+    padding: 2rem 1rem;
+    background-color: #283593; /* Material Indigo 700 */
     color: white;
     margin-top: 2rem;
 }
@@ -136,6 +141,6 @@ footer {
     }
 
     .project-item {
-        flex-basis: calc(50% - 10px);
+        flex-basis: calc(50% - 2rem);
     }
 }
