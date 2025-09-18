@@ -9,12 +9,35 @@ body {
 }
 
 header {
-    background-color: #3f51b5; /* Material Indigo 500 */
+    /* --- 헤더 이미지 관련 코드 --- */
+    background-image: url("./img.png"); /* 사용자가 요청한 이미지 유지 */
+    background-size: cover; /* 이미지가 헤더 영역을 꽉 채우도록 설정 */
+    background-position: center; /* 이미지를 중앙에 위치시킴 */
+    position: relative; /* 오버레이를 위한 기준점 설정 */
+    /* -------------------------- */
+
     color: white;
     padding: 2rem 1rem;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 그림자 효과 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* 이미지 위에 어두운 오버레이를 추가하여 텍스트 가독성을 높입니다. */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* 반투명 검정 오버레이 */
+}
+
+/* 헤더의 실제 콘텐츠(h1, p, nav)가 오버레이 위에 표시되도록 합니다. */
+header > .header-content, header > nav {
+    position: relative;
+}
+
 
 header h1 {
     margin-bottom: 0.5rem;
