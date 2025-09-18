@@ -1,92 +1,177 @@
-/* Basic Styles - Mobile-First Approach */
-:root {
-    --primary-color: #2c3e50; /* A dark blue for text */
-    --accent-color: #3498db; /* A bright blue for highlights */
-    --background-color: #ecf0f1; /* A light gray background */
-}
-
+/* Basic Styles */
 body {
     font-family: sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--primary-color);
+    color: #333;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-color: #2980b9; /* 푸른 계열 배경색 */
+    background-color: #2c3e50; /* 푸른 계열 배경 */
     color: white;
-    padding: 1rem 0;
+    padding: 2rem 1rem;
     text-align: center;
 }
 
-header nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+header h1 {
+    margin-bottom: 0.5rem;
 }
 
-header nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-header nav a:hover {
-    color: var(--accent-color);
+header p {
+    margin-top: 0;
 }
 
 main {
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
 section {
-    margin-bottom: 40px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    color: var(--accent-color);
-    text-align: center;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.project-grid {
-    display: grid;
-    gap: 20px;
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skill-group h3 {
+    color: #3498db;
+}
+
+.skill-group ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-group li {
+    background-color: #ecf0f1;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+/* Projects */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .project-item {
-    background-color: white;
-    padding: 20px;
+    border: 1px solid #ddd;
+    padding: 1rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-item a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Team Section */
+.team-members {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.member {
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.member h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.member p {
+    color: #777;
+    margin-top: 0;
+}
+
+.member ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.member li {
+    margin-bottom: 0.25rem;
+    color: #555;
+}
+
+/* Contact */
+#contact ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#contact a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
-    border-top: 1px solid #ccc;
-    background-color: #bdc3c7;
+    padding: 1rem;
+    background-color: #2c3e50;
+    color: white;
+    margin-top: 2rem;
 }
 
-/* Tablet and Desktop Styles */
+/* Responsive Design */
 @media (min-width: 768px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .skills-grid {
+        flex-direction: row;
+        justify-content: space-between;
     }
-}
 
-/* Desktop Styles */
-@media (min-width: 1024px) {
-    .project-grid {
-        grid-template-columns: repeat(3, 1fr);
+    .skill-group {
+        flex-basis: 30%;
+    }
+
+    .projects-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .project-item {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .team-members {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .member {
+        flex-basis: calc(33.333% - 15px);
     }
 }
