@@ -1,0 +1,92 @@
+/* Basic Styles - Mobile-First Approach */
+:root {
+    --primary-color: #2c3e50; /* A dark blue for text */
+    --accent-color: #3498db; /* A bright blue for highlights */
+    --background-color: #ecf0f1; /* A light gray background */
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+}
+
+header {
+    background-color: #2980b9; /* 푸른 계열 배경색 */
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: var(--accent-color);
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--accent-color);
+    text-align: center;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.project-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.project-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    background-color: #bdc3c7;
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
